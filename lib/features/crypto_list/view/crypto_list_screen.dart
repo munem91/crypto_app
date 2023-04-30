@@ -1,12 +1,13 @@
-import 'package:crypto_app/repositories/mock/mock_crypto_coins_repository.dart';
-import 'package:dio/dio.dart';
+import 'package:crypto_app/repositories/mock/abstract_coin_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:crypto_app/repositories/crypto_coins/crypto_coins.dart';
 import 'package:crypto_app/features/crypto_list/widgets/widgets.dart';
 
 class CryptoListScreen extends StatefulWidget {
+  final AbstractCoinRepository repository;
   const CryptoListScreen({
     super.key,
+    required this.repository,
   });
 
   @override
@@ -15,6 +16,7 @@ class CryptoListScreen extends StatefulWidget {
 
 class _CryptoListScreenState extends State<CryptoListScreen> {
   List<CryptoCoin>? coins;
+
   //  _cryptoCoinsList;
 
   @override
@@ -25,7 +27,7 @@ class _CryptoListScreenState extends State<CryptoListScreen> {
     // coinsMock = CryptoCoinsRepositoryMock();
     // List<CryptoCoin> coins = coinsMock.getCoinsListMock();
 
-    coins = CryptoCoinsRepositoryMock().getCoinsListMock();
+    coins = widget.repository.getCoinsListMock();
   }
 
   @override

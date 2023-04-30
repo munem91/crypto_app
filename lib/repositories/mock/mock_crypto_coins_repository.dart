@@ -3,9 +3,9 @@ import 'dart:ffi';
 import 'package:crypto_app/repositories/crypto_coins/models/crypto_coin.dart';
 import 'package:flutter/material.dart';
 
-import 'mock_abstract_coin_repository.dart';
+import 'abstract_coin_repository.dart';
 
-class CryptoCoinsRepositoryMock implements AbstractCoinRepositoryMock {
+class CryptoCoinsRepositoryMock implements AbstractCoinRepository {
   @override
   List<CryptoCoin> getCoinsListMock() {
     final List<CryptoCoin> listCoins = [];
